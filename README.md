@@ -4,7 +4,7 @@ Role: Identity Architect / Engineer
 Technologies: Okta Workforce Identity, GitHub Enterprise Cloud, SAML 2.0, SCIM 2.0
 Status: Completed & Verified
 
-🔹 Executive Summary
+**🔹 Executive Summary **
 
 This project architects a complete Zero Trust Identity Lifecycle for a software development organization. By integrating Okta (IdP) with GitHub Enterprise (SP), I replaced manual, insecure credential management with a fully federated and automated identity stack.
 
