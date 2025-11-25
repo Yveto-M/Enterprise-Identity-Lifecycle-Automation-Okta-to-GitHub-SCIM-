@@ -24,9 +24,11 @@ Objective: Establish a cryptographically trusted bridge between the Identity Pro
 
 Initiated the integration using the verified Okta Integration Network (OIN) connector for GitHub Enterprise to ensure vendor-supported compatibility.
 
-
 <img width="1620" height="583" alt="okta-to-github-01" src="https://github.com/user-attachments/assets/84502d21-f7e8-4bb1-a0f4-40e4a52c02f0" />
 Figure 1: Selecting the verified GitHub Enterprise Cloud integration from the OIN catalog.
+
+
+
 
 1.2 IdP Configuration (The Handshake)
 
@@ -35,12 +37,18 @@ Configured the SAML parameters within Okta. This step generates the Metadata URL
 <img width="1021" height="755" alt="SAML-config-okta-2" src="https://github.com/user-attachments/assets/0cae7ed5-4e2d-43da-9186-f2b33e5d4bb9" />
 Figure 2: Okta Sign-On settings showing the generated Metadata URL and setup instructions.
 
+
+
+
 1.3 Service Provider Setup (GitHub)
 
 Applied the Identity Provider's trust parameters into the GitHub Organization's security settings to define Okta as the source of authentication.
 
 <img width="1030" height="350" alt="properties-to-intigrate-github-3" src="https://github.com/user-attachments/assets/72d9d684-c1c8-42cd-b41b-43885347c805" />
 Figure 3: Inputting the Sign-on URL, Issuer URI, and Public Certificate into GitHub.
+
+
+
 
 1.4 Preparing Authentication Security
 
@@ -49,30 +57,36 @@ Navigated to the GitHub Authentication Security panel to prepare for the SSO enf
 <img width="1217" height="244" alt="github-auth-config-4" src="https://github.com/user-attachments/assets/5ed9b33f-cce8-41c1-beed-f343e6f12e5a" />
 Figure 4: Accessing the Authentication Security controls in the GitHub Org settings.
 
+
+
+
 1.5 Enabling the Trust
 
 Activated the SAML configuration on the Service Provider side, requiring valid SAML assertions for access.
 
-
 <img width="1194" height="521" alt="guthub-anable-saml-5" src="https://github.com/user-attachments/assets/cc66325e-04f0-46ee-ad89-74c304913d22" />
 Figure 5: Enabling SAML authentication and validating the Sign-on URL.
+
+
+
 
 1.6 Validation & Testing
 
 Before enforcing the policy, a test authentication request was sent to verify the handshake and prevent lockout.
 
-
-
 <img width="963" height="654" alt="github-test-saml-config-6" src="https://github.com/user-attachments/assets/a0c3c447-9635-4780-9c09-9008963027be" />
 Figure 6: Initiating the "Test SAML Configuration" check.
+
+
+
 
 1.7 Success Confirmation
 
 The Identity Provider successfully authenticated the user and passed the correct attributes (NameID) back to the Service Provider.
 
-
 <img width="986" height="335" alt="SAML-config-successful-7" src="https://github.com/user-attachments/assets/bc95eab0-dcb9-4e46-a64c-e8e6b80d083f" />
 Figure 7: Successful SAML handshake verification ("Passed").
+
 
 
 
