@@ -37,6 +37,7 @@ Figure 1: Selecting the verified GitHub Enterprise Cloud integration from the OI
 
 &nbsp;
 
+
 **1.2 IdP Configuration (The Handshake)**
 
 Configured the SAML parameters within Okta. This step generates the Metadata URL and X.509 Certificate required to sign assertions.
@@ -47,6 +48,7 @@ Figure 2: Okta Sign-On settings showing the generated Metadata URL and setup ins
 
 &nbsp;
 
+
 **1.3 Service Provider Setup (GitHub)**
 
 Applied the Identity Provider's trust parameters into the GitHub Organization's security settings to define Okta as the source of authentication.
@@ -54,8 +56,9 @@ Applied the Identity Provider's trust parameters into the GitHub Organization's 
 <img width="1030" height="350" alt="properties-to-intigrate-github-3" src="https://github.com/user-attachments/assets/72d9d684-c1c8-42cd-b41b-43885347c805" />
 Figure 3: Inputting the Sign-on URL, Issuer URI, and Public Certificate into GitHub.
 
-
 &nbsp;
+
+
 **1.4 Preparing Authentication Security**
 
 Navigated to the GitHub Authentication Security panel to prepare for the SSO enforcement switch-over.
@@ -65,6 +68,8 @@ Figure 4: Accessing the Authentication Security controls in the GitHub Org setti
 
 
 &nbsp;
+
+
 **1.5 Enabling the Trust**
 
 Activated the SAML configuration on the Service Provider side, requiring valid SAML assertions for access.
@@ -74,6 +79,8 @@ Figure 5: Enabling SAML authentication and validating the Sign-on URL.
 
 
 &nbsp;
+
+
 **1.6 Validation & Testing**
 
 Before enforcing the policy, a test authentication request was sent to verify the handshake and prevent lockout.
@@ -83,6 +90,8 @@ Figure 6: Initiating the "Test SAML Configuration" check.
 
 
 &nbsp;
+
+
 **1.7 Success Confirmation**
 
 The Identity Provider successfully authenticated the user and passed the correct attributes (NameID) back to the Service Provider.
@@ -105,6 +114,8 @@ Figure 8: Initiating the API integration for SCIM provisioning.
 
 
 &nbsp;
+
+
 **2.2 Establishing the OAuth Connection**
 
 Selected the authentication method to bind the Okta tenant to the GitHub Organization.
@@ -114,6 +125,8 @@ Figure 9: Authenticating with GitHub Enterprise Cloud.
 
 
 &nbsp;
+
+
 **2.3 Authorization Grant**
 
 Granted Okta the necessary OAuth scopes to manage users and teams within the GitHub Organization.
@@ -122,6 +135,7 @@ Granted Okta the necessary OAuth scopes to manage users and teams within the Git
 Figure 10: Authorizing the OktaOAN integration application.
 
 &nbsp;
+
 
 **2.4 Enabling CRUD Operations (The Automation Logic)**
 
@@ -132,10 +146,12 @@ Figure 11: Enabling Create, Update, and Deactivate user workflows.
 
 &nbsp;
 
+
 **🧪 Phase 3: Execution & Verification (The "Ghost User" Test)**
 
 **Objective: Prove that a user created in Okta appears in GitHub without human intervention.**
 &nbsp;
+
 
 **3.1 The "Joiner" Event (Creation)**
 
@@ -146,6 +162,8 @@ Figure 12: User created in Source System (Okta) in a pending state.
 
 
 &nbsp;
+
+
 **3.2 Entitlement Assignment**
 
 Assigned the GitHub application to the user, triggering the SCIM "Create" event.
@@ -155,6 +173,8 @@ Figure 13: Assigning the GitHub application to the user profile.
 
 
 &nbsp;
+
+
 **3.3 Activation Workflow**
 
 Manually activated the user to bypass the email verification loop for lab testing purposes.
@@ -162,7 +182,10 @@ Manually activated the user to bypass the email verification loop for lab testin
 
 <img width="618" height="331" alt="mannually activate user-14" src="https://github.com/user-attachments/assets/5c00e74c-cb86-40fd-805a-b835a37f376c" />
 Figure 14: Forcing user activation to trigger immediate provisioning.
+
 &nbsp;
+
+
 **3.4 Automated Provisioning Result**
 
 Verified that the user account (invite) appeared in the target system (GitHub) immediately.
@@ -171,6 +194,8 @@ Verified that the user account (invite) appeared in the target system (GitHub) i
 Figure 15: SCIM successfully pushes the new user invite to GitHub immediately.
 
 &nbsp;
+
+
 **3.5 The "Leaver" Event (Kill Switch)**
 
 Deactivated the user in Okta to simulate an employee termination.
@@ -179,6 +204,8 @@ Deactivated the user in Okta to simulate an employee termination.
 Figure 16: Admin deactivates user in Source System (Okta).
 
 &nbsp;
+
+
 **3.6 Access Revocation Verification**
 
 Confirmed that the user was removed or suspended in the target system.
@@ -187,6 +214,8 @@ Confirmed that the user was removed or suspended in the target system.
 Figure 17: The SCIM 'Deactivate' signal successfully removes access/invites in the target system.
 
 &nbsp;
+
+
 **📊 Project Outcomes**
 
 **Security:** Enforced centralized authentication policy (MFA) via SAML federation.
