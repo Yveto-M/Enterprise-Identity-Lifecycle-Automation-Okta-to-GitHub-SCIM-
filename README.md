@@ -141,7 +141,7 @@ Figure 11: Enabling Create, Update, and Deactivate user workflows.
 
 **🧪 Phase 3: Execution & Verification (The "Ghost User" Test)**
 
-Objective: Prove that a user created in Okta appears in GitHub without human intervention.
+**Objective: Prove that a user created in Okta appears in GitHub without human intervention.**
 
 **3.1 The "Joiner" Event (Creation)**
 
