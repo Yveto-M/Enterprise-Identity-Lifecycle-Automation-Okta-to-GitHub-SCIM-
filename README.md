@@ -8,11 +8,13 @@
 
 &nbsp;
 
+
 **🔹 Executive Summary**
 
 This project architects a complete Zero Trust Identity Lifecycle for a software development organization. By integrating Okta (IdP) with GitHub Enterprise (SP), I replaced manual, insecure credential management with a fully federated and automated identity stack.
 
 &nbsp;
+
 
 **Key Engineering Wins:**
 
@@ -35,6 +37,7 @@ Initiated the integration using the verified Okta Integration Network (OIN) conn
 <img width="1620" height="583" alt="okta-to-github-01" src="https://github.com/user-attachments/assets/84502d21-f7e8-4bb1-a0f4-40e4a52c02f0" />
 Figure 1: Selecting the verified GitHub Enterprise Cloud integration from the OIN catalog.
 
+
 &nbsp;
 
 
@@ -55,6 +58,7 @@ Applied the Identity Provider's trust parameters into the GitHub Organization's 
 
 <img width="1030" height="350" alt="properties-to-intigrate-github-3" src="https://github.com/user-attachments/assets/72d9d684-c1c8-42cd-b41b-43885347c805" />
 Figure 3: Inputting the Sign-on URL, Issuer URI, and Public Certificate into GitHub.
+
 
 &nbsp;
 
@@ -101,6 +105,8 @@ Figure 7: Successful SAML handshake verification ("Passed").
 
 
 &nbsp;
+
+
 **⚙️ Phase 2: SCIM Lifecycle Automation**
 &nbsp;
 **Objective: Automate the Joiner/Mover/Leaver (JML) process to eliminate manual administration and reduce onboarding time.**
@@ -116,6 +122,7 @@ Figure 8: Initiating the API integration for SCIM provisioning.
 &nbsp;
 
 
+
 **2.2 Establishing the OAuth Connection**
 
 Selected the authentication method to bind the Okta tenant to the GitHub Organization.
@@ -127,12 +134,14 @@ Figure 9: Authenticating with GitHub Enterprise Cloud.
 &nbsp;
 
 
+
 **2.3 Authorization Grant**
 
 Granted Okta the necessary OAuth scopes to manage users and teams within the GitHub Organization.
 
 <img width="559" height="610" alt="autho-complete-10" src="https://github.com/user-attachments/assets/4ceae5e6-0ef6-473b-883b-0592c14adee0" />
 Figure 10: Authorizing the OktaOAN integration application.
+
 
 &nbsp;
 
@@ -144,13 +153,16 @@ Configured the provisioning rules. Explicitly enabled Create Users, Update Attri
 <img width="957" height="710" alt="enable crud-action-11" src="https://github.com/user-attachments/assets/fc123f9e-e754-4613-bd44-671370deac63" />
 Figure 11: Enabling Create, Update, and Deactivate user workflows.
 
+
 &nbsp;
+
 
 
 **🧪 Phase 3: Execution & Verification (The "Ghost User" Test)**
 
 **Objective: Prove that a user created in Okta appears in GitHub without human intervention.**
 &nbsp;
+
 
 
 **3.1 The "Joiner" Event (Creation)**
@@ -164,6 +176,7 @@ Figure 12: User created in Source System (Okta) in a pending state.
 &nbsp;
 
 
+
 **3.2 Entitlement Assignment**
 
 Assigned the GitHub application to the user, triggering the SCIM "Create" event.
@@ -175,6 +188,7 @@ Figure 13: Assigning the GitHub application to the user profile.
 &nbsp;
 
 
+
 **3.3 Activation Workflow**
 
 Manually activated the user to bypass the email verification loop for lab testing purposes.
@@ -183,7 +197,9 @@ Manually activated the user to bypass the email verification loop for lab testin
 <img width="618" height="331" alt="mannually activate user-14" src="https://github.com/user-attachments/assets/5c00e74c-cb86-40fd-805a-b835a37f376c" />
 Figure 14: Forcing user activation to trigger immediate provisioning.
 
+
 &nbsp;
+
 
 
 **3.4 Automated Provisioning Result**
@@ -193,7 +209,9 @@ Verified that the user account (invite) appeared in the target system (GitHub) i
 <img width="1268" height="282" alt="github-invite-confirmed-15" src="https://github.com/user-attachments/assets/3eccb60c-6562-476b-bbab-336a339198b9" />
 Figure 15: SCIM successfully pushes the new user invite to GitHub immediately.
 
+
 &nbsp;
+
 
 
 **3.5 The "Leaver" Event (Kill Switch)**
@@ -203,7 +221,9 @@ Deactivated the user in Okta to simulate an employee termination.
 <img width="1035" height="487" alt="deactivated-user-okta-16" src="https://github.com/user-attachments/assets/fa0431d9-dd45-4003-b470-59deac6063f7" />
 Figure 16: Admin deactivates user in Source System (Okta).
 
+
 &nbsp;
+
 
 
 **3.6 Access Revocation Verification**
@@ -213,7 +233,9 @@ Confirmed that the user was removed or suspended in the target system.
 <img width="1280" height="263" alt="deactivated-user-on-github-17" src="https://github.com/user-attachments/assets/a58d3b78-5cd2-41ca-bbe2-b96868f7594e" />
 Figure 17: The SCIM 'Deactivate' signal successfully removes access/invites in the target system.
 
+
 &nbsp;
+
 
 
 **📊 Project Outcomes**
