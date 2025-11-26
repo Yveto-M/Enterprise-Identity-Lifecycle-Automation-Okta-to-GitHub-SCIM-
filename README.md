@@ -46,6 +46,7 @@ Figure 2: Okta Sign-On settings showing the generated Metadata URL and setup ins
 
 
 &nbsp;
+
 **1.3 Service Provider Setup (GitHub)**
 
 Applied the Identity Provider's trust parameters into the GitHub Organization's security settings to define Okta as the source of authentication.
