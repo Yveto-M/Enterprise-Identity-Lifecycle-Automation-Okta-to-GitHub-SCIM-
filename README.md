@@ -4,6 +4,7 @@
 **Technologies:** Okta Workforce Identity, GitHub Enterprise Cloud, SAML 2.0, SCIM 2.0
 **Status:** Completed & Verified
 
+&nbsp;
 
 **🔹 Executive Summary**
 
