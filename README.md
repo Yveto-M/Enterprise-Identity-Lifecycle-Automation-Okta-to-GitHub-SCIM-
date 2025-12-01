@@ -1,7 +1,5 @@
 **Enterprise Identity Architecture: Okta to GitHub (SAML + SCIM)**
 
-**Role:** Identity Architect / Engineer
-
 **Technologies:** Okta Workforce Identity, GitHub Enterprise Cloud, SAML 2.0, SCIM 2.0
 
 **Status:** Completed & Verified
